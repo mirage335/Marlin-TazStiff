@@ -267,7 +267,7 @@ const bool Z_MAX_ENDSTOP_INVERTING = true;
 
   #if ENABLED(AUTO_BED_LEVELING_GRID)
 
-    #define LEFT_PROBE_BED_POSITION 90
+    #define LEFT_PROBE_BED_POSITION 70
     #define RIGHT_PROBE_BED_POSITION (X_MAX_POS - LEFT_PROBE_BED_POSITION)
     #define FRONT_PROBE_BED_POSITION (75 - 75)
     #define BACK_PROBE_BED_POSITION (Y_MAX_POS - FRONT_PROBE_BED_POSITION - 75)
@@ -276,7 +276,7 @@ const bool Z_MAX_ENDSTOP_INVERTING = true;
 
     // Set the number of grid points per dimension.
     // You probably don't need more than 3 (squared=9).
-    #define AUTO_BED_LEVELING_GRID_POINTS 2
+    #define AUTO_BED_LEVELING_GRID_POINTS 3
 
   #else  // !AUTO_BED_LEVELING_GRID
 
