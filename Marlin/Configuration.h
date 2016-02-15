@@ -19,7 +19,8 @@
 #define STRING_SPLASH_LINE2 STRING_DISTRIBUTION_DATE // will be shown during bootup in line 2
 
 #define SERIAL_PORT 0
-#define BAUDRATE 57600
+//#define BAUDRATE 57600
+#define BAUDRATE 250000
 
 #ifndef MOTHERBOARD
   #define MOTHERBOARD BOARD_RAMBO
@@ -31,9 +32,10 @@
 
 #define EXTRUDERS 2
 
-// 7 is 100k Honeywell thermistor 135-104LAG-J01 (4.7k pullup)
-#define TEMP_SENSOR_0 7
-#define TEMP_SENSOR_1 7
+// 1 is 100k thermistor - best choice for EPCOS 100k (4.7k pullup)l, recommended at http://www.reprapdiscount.com/hotends/67-hexagon-hotend-set.html
+// 7 is 100k Honeywell thermistor 135-104LAG-J01 (4.7k pullup), recommended at https://www.lulzbot.com/store/parts/100k-honeywell-axial-thermistor, https://www.lulzbot.com/store/parts/24v-silicone-heater
+#define TEMP_SENSOR_0 1
+#define TEMP_SENSOR_1 1
 #define TEMP_SENSOR_BED 7
 
 // Actual temperature must be close to target for this long before M109 returns success
@@ -44,18 +46,20 @@
 // The minimal temperature defines the temperature below which the heater will not be enabled It is used
 // to check that the wiring to the thermistor is not broken.
 // Otherwise this would lead to the heater being powered on all the time.
-#define HEATER_0_MINTEMP -273.15
-#define HEATER_1_MINTEMP -273.15
-#define BED_MINTEMP -273.15
+// Set to -273.15 to isable.
 
-#define HEATER_0_MAXTEMP 250
-#define HEATER_1_MAXTEMP 250
+#define HEATER_0_MINTEMP 0
+#define HEATER_1_MINTEMP 0
+#define BED_MINTEMP 0
+
+#define HEATER_0_MAXTEMP 275
+#define HEATER_1_MAXTEMP 275
 #define BED_MAXTEMP 150
 
 //Extruder PID settings. "In the case of multiple extruders (E0, E1, E2) these PID values are shared between the extruders..."
 #define PIDTEMP
-#define BANG_MAX 100 // limits current to nozzle while in bang-bang mode; 255=full current
-#define PID_MAX 104 // limits current to nozzle while PID is active (see PID_FUNCTIONAL_RANGE below); 255=full current
+#define BANG_MAX 75 // limits current to nozzle while in bang-bang mode; 255=full current
+#define PID_MAX 75 // limits current to nozzle while PID is active (see PID_FUNCTIONAL_RANGE below); 255=full current
 
 #if ENABLED(PIDTEMP)
 	//#define PID_DEBUG // Sends debug data to the serial port.
@@ -70,14 +74,19 @@
 	#define PID_dT ((OVERSAMPLENR * 10.0)/(F_CPU / 64.0 / 256.0)) //sampling period of the temperature routine
 
 	// Buda 2.0 on 24V
-	#define  DEFAULT_Kp 6
-	#define  DEFAULT_Ki .3
-	#define  DEFAULT_Kd 125
+	//#define  DEFAULT_Kp 12
+	//#define  DEFAULT_Ki .3
+	//#define  DEFAULT_Kd 125
 	
 	//Hexagon on 24V, TazMega Custom PID
 	//#define  DEFAULT_Kp 35
 	//#define  DEFAULT_Ki .25
 	//#define  DEFAULT_Kd 100
+
+ //Hexagon on 24V, 5.5ohm Heater, Derived from TazMega Custom PID
+  #define  DEFAULT_Kp 10
+  #define  DEFAULT_Ki .25
+  #define  DEFAULT_Kd 100
 	
 #endif
 
@@ -103,12 +112,12 @@
 
 //Thermal Runaway protection.
 // Extruders
-//#define THERMAL_RUNAWAY_PROTECTION_PERIOD 40 //in seconds
-//#define THERMAL_RUNAWAY_PROTECTION_HYSTERESIS 4 // in degree Celsius
+#define THERMAL_RUNAWAY_PROTECTION_PERIOD 20 //in seconds
+#define THERMAL_RUNAWAY_PROTECTION_HYSTERESIS 4 // in degree Celsius
 
 // Parameters for the bed heater
-//#define THERMAL_RUNAWAY_PROTECTION_BED_PERIOD 20 //in seconds
-//#define THERMAL_RUNAWAY_PROTECTION_BED_HYSTERESIS 2 // in degree Celsius
+#define THERMAL_RUNAWAY_PROTECTION_BED_PERIOD 20 //in seconds
+#define THERMAL_RUNAWAY_PROTECTION_BED_HYSTERESIS 2 // in degree Celsius
 
 
 //===========================================================================
@@ -147,8 +156,8 @@ const bool Z_MAX_ENDSTOP_INVERTING = true;
 #define INVERT_X_DIR false
 #define INVERT_Y_DIR true
 #define INVERT_Z_DIR true
-#define INVERT_E0_DIR false
-#define INVERT_E1_DIR false
+#define INVERT_E0_DIR true
+#define INVERT_E1_DIR true
 
 // ENDSTOP SETTINGS:
 // Sets direction of endstops when homing; 1=MAX, -1=MIN
@@ -193,7 +202,7 @@ const bool Z_MAX_ENDSTOP_INVERTING = true;
 //TazMega extruders have been configured with 866 steps/mm.
 #define DEFAULT_AXIS_STEPS_PER_UNIT   {53.33,53.33,400,890}
 
-#define DEFAULT_MAX_FEEDRATE          {600, 600, 25, 50}
+#define DEFAULT_MAX_FEEDRATE          {600, 600, 15, 50}
 #define DEFAULT_MAX_ACCELERATION      {10000,10000,35,10000}	//XY tested at upwards of 12000mm/s^2 (~1.2G)
 
 #define DEFAULT_ACCELERATION          4000
@@ -207,9 +216,9 @@ const bool Z_MAX_ENDSTOP_INVERTING = true;
 // #define EXTRUDER_OFFSET_Y {0.0, 5.00}  // (in mm) for each extruder, offset of the hotend on the Y axis
 
 // The speed change that does not require acceleration (i.e. the software might assume it can be done instantaneously)
-#define DEFAULT_XYJERK                8.0    // (mm/sec)
-#define DEFAULT_ZJERK                 0.4     // (mm/sec)
-#define DEFAULT_EJERK                 10.0    // (mm/sec)
+#define DEFAULT_XYJERK                12     // (mm/sec)
+#define DEFAULT_ZJERK                 0.5    // (mm/sec)
+#define DEFAULT_EJERK                 5.0    // (mm/sec)
 
 
 
@@ -297,7 +306,13 @@ const bool Z_MAX_ENDSTOP_INVERTING = true;
   #define Y_PROBE_OFFSET_FROM_EXTRUDER 0     // Z probe to nozzle Y offset: -front +behind
   //#define X_PROBE_OFFSET_FROM_EXTRUDER -70     // Z probe to nozzle X offset: -left  +right
   //#define Y_PROBE_OFFSET_FROM_EXTRUDER 55     // Z probe to nozzle Y offset: -front +behind
-  #define Z_PROBE_OFFSET_FROM_EXTRUDER -1  // Z probe to nozzle Z offset: -below (always!)
+  //#define Z_PROBE_OFFSET_FROM_EXTRUDER -1  // Z probe to nozzle Z offset: -below (always!)
+
+  #define Z_PROBE_OFFSET_FROM_EXTRUDER -1.35   //@20C - Use slicer configuration to apply temperature dependent offsets.
+  //#define Z_PROBE_OFFSET_FROM_EXTRUDER -1   //@20C
+  //define Z_PROBE_OFFSET_FROM_EXTRUDER -0.7  //@120C
+  //#define Z_PROBE_OFFSET_FROM_EXTRUDER -0.875  //@65C
+  
 
   #define Z_RAISE_BEFORE_HOMING 4       // (in mm) Raise Z axis before homing (G28) for Z probe clearance.
                                         // Be sure you have this distance over your Z_MAX_POS in case.
