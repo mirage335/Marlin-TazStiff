@@ -205,9 +205,9 @@ const bool Z_MAX_ENDSTOP_INVERTING = true;
 #define DEFAULT_MAX_FEEDRATE          {600, 600, 15, 50}
 #define DEFAULT_MAX_ACCELERATION      {10000,10000,35,10000}	//XY tested at upwards of 12000mm/s^2 (~1.2G)
 
-#define DEFAULT_ACCELERATION          4000
-#define DEFAULT_RETRACT_ACCELERATION  4000
-#define DEFAULT_TRAVEL_ACCELERATION   4000
+#define DEFAULT_ACCELERATION          2750
+#define DEFAULT_RETRACT_ACCELERATION  2750
+#define DEFAULT_TRAVEL_ACCELERATION   2750
 
 // Offset of the extruders (uncomment if using more than one and relying on firmware to position when changing).
 // The offset has to be X=0, Y=0 for the extruder 0 hotend (default extruder).
@@ -216,7 +216,7 @@ const bool Z_MAX_ENDSTOP_INVERTING = true;
 // #define EXTRUDER_OFFSET_Y {0.0, 5.00}  // (in mm) for each extruder, offset of the hotend on the Y axis
 
 // The speed change that does not require acceleration (i.e. the software might assume it can be done instantaneously)
-#define DEFAULT_XYJERK                12     // (mm/sec)
+#define DEFAULT_XYJERK                15     // (mm/sec)
 #define DEFAULT_ZJERK                 0.5    // (mm/sec)
 #define DEFAULT_EJERK                 5.0    // (mm/sec)
 
@@ -285,7 +285,7 @@ const bool Z_MAX_ENDSTOP_INVERTING = true;
 
     // Set the number of grid points per dimension.
     // You probably don't need more than 3 (squared=9).
-    #define AUTO_BED_LEVELING_GRID_POINTS 3
+    #define AUTO_BED_LEVELING_GRID_POINTS 5
 
   #else  // !AUTO_BED_LEVELING_GRID
 
@@ -453,6 +453,8 @@ const bool Z_MAX_ENDSTOP_INVERTING = true;
 //==============================LCD and SD support=============================
 
 #define SDSUPPORT // Enable SD Card Support in Hardware Console
+
+#define LCD_TIMEOUT_TO_STATUS 300000
 
 #define DISPLAY_CHARSET_HD44780_JAPAN     // "ääööüüß23°"
 
