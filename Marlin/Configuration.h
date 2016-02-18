@@ -99,7 +99,8 @@
 //Bed PID settings.
 #define PIDTEMPBED
 //#define MAX_BED_POWER 250 // limits duty cycle to bed; 255=full current
-#define MAX_BED_POWER 96  //Low power setting,  90W, 90V emulated. Intended for use while sharing a UPS.
+//#define MAX_BED_POWER 96  //Low power setting,  90W, 90V emulated. Intended for use while sharing a UPS.
+#define MAX_BED_POWER 184  //More aggressive UPS compatible option, ~170W, ~17V emulated.
 
 #if ENABLED(PIDTEMPBED)
 	#define PID_BED_INTEGRAL_DRIVE_MAX MAX_BED_POWER //limit for the integral term
