@@ -89,10 +89,10 @@
 //#define CONTROLLERFAN_PIN -1 //Pin used for the fan to cool controller (-1 to disable)
 #define CONTROLLERFAN_PIN 2
 #define CONTROLLERFAN_SECS 15 //How many seconds, after all motors were disabled, the fan should run
-#define CONTROLLERFAN_SPEED 60  // == full speed
-#define CONTROLLERFAN_SPEED_FULL 60  // Full speed for when motor are active
-#define CONTROLLERFAN_SPEED_IDLE 50          // Idle speed for when the motor have been inactive     
-#define CONTROLLERFAN_SPEED_MAX 128          // Maximum limit for the fan speed so it does not burn out. Use 128 for 12v fans with 24V Power Supplies
+#define CONTROLLERFAN_SPEED 138  // == full speed
+#define CONTROLLERFAN_SPEED_FULL 138  // Full speed for when motor are active
+#define CONTROLLERFAN_SPEED_IDLE 75          // Idle speed for when the motor have been inactive     
+#define CONTROLLERFAN_SPEED_MAX 138          // Maximum limit for the fan speed so it does not burn out. Use 128 for 12v fans with 24V Power Supplies
 #define CONTROLLERFAN_SPEED_MIN 50   // Minimum limit for the fan speed where it will start to spin from a stop without a push.
 
 // When first starting the main fan, run it at full speed for the
@@ -271,7 +271,7 @@
 #define MICROSTEP_MODES {16,16,16,16,16} // [1,2,4,8,16]
 
 // Motor Current setting (Only functional when motor driver current ref pins are connected to a digital trimpot on supported boards)
-#define DIGIPOT_MOTOR_CURRENT {185,185,215,135,135} // Values 0-255 (RAMBO 135 = ~0.75A, 185 = ~1A) - 255 calculated at < 1.42A - 255 calculated at < 1.42A
+#define DIGIPOT_MOTOR_CURRENT {255,255,235,140,140} // Values 0-255 (RAMBO 135 = ~0.75A, 185 = ~1A) - 255 calculated at < 1.42A - 255 calculated at < 1.42A
 
 // uncomment to enable an I2C based DIGIPOT like on the Azteeg X3 Pro
 //#define DIGIPOT_I2C
