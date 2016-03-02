@@ -218,7 +218,7 @@ const bool Z_MAX_ENDSTOP_INVERTING = true;
 // #define EXTRUDER_OFFSET_Y {0.0, 5.00}  // (in mm) for each extruder, offset of the hotend on the Y axis
 
 // The speed change that does not require acceleration (i.e. the software might assume it can be done instantaneously)
-#define DEFAULT_XYJERK                15     // (mm/sec)
+#define DEFAULT_XYJERK                20     // (mm/sec)
 #define DEFAULT_ZJERK                 0.5    // (mm/sec)
 #define DEFAULT_EJERK                 5.0    // (mm/sec)
 
@@ -310,7 +310,7 @@ const bool Z_MAX_ENDSTOP_INVERTING = true;
   //#define Y_PROBE_OFFSET_FROM_EXTRUDER 55     // Z probe to nozzle Y offset: -front +behind
   //#define Z_PROBE_OFFSET_FROM_EXTRUDER -1  // Z probe to nozzle Z offset: -below (always!)
 
-  #define Z_PROBE_OFFSET_FROM_EXTRUDER -1.35   //@20C - Use slicer configuration to apply temperature dependent offsets.
+  #define Z_PROBE_OFFSET_FROM_EXTRUDER -1.525   //@20C - Use slicer configuration to apply temperature dependent offsets.
   //#define Z_PROBE_OFFSET_FROM_EXTRUDER -1   //@20C
   //define Z_PROBE_OFFSET_FROM_EXTRUDER -0.7  //@120C
   //#define Z_PROBE_OFFSET_FROM_EXTRUDER -0.875  //@65C
