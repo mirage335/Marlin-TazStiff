@@ -310,7 +310,7 @@ const bool Z_MAX_ENDSTOP_INVERTING = true;
   //#define Y_PROBE_OFFSET_FROM_EXTRUDER 55     // Z probe to nozzle Y offset: -front +behind
   //#define Z_PROBE_OFFSET_FROM_EXTRUDER -1  // Z probe to nozzle Z offset: -below (always!)
 
-  #define Z_PROBE_OFFSET_FROM_EXTRUDER -1.525   //@20C - Use slicer configuration to apply temperature dependent offsets.
+  #define Z_PROBE_OFFSET_FROM_EXTRUDER -1.625   //@20C - Use slicer configuration to apply temperature dependent offsets.
   //#define Z_PROBE_OFFSET_FROM_EXTRUDER -1   //@20C
   //define Z_PROBE_OFFSET_FROM_EXTRUDER -0.7  //@120C
   //#define Z_PROBE_OFFSET_FROM_EXTRUDER -0.875  //@65C
