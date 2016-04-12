@@ -237,7 +237,7 @@
 #define INVERT_E_STEP_PIN false
 
 // Default stepper release if idle. Set to 0 to deactivate.
-#define DEFAULT_STEPPER_DEACTIVE_TIME 300
+#define DEFAULT_STEPPER_DEACTIVE_TIME 90
 
 #define DEFAULT_MINIMUMFEEDRATE       0.0     // minimum feedrate
 #define DEFAULT_MINTRAVELFEEDRATE     0.0
@@ -271,7 +271,7 @@
 #define MICROSTEP_MODES {16,16,16,16,16} // [1,2,4,8,16]
 
 // Motor Current setting (Only functional when motor driver current ref pins are connected to a digital trimpot on supported boards)
-#define DIGIPOT_MOTOR_CURRENT {245,245,235,140,140} // Values 0-255 (RAMBO 135 = ~0.75A, 185 = ~1A) - 255 calculated at < 1.42A
+#define DIGIPOT_MOTOR_CURRENT {225,225,235,140,140} // Values 0-255 (RAMBO 135 = ~0.75A, 185 = ~1A) - 255 calculated at < 1.42A
 
 // uncomment to enable an I2C based DIGIPOT like on the Azteeg X3 Pro
 //#define DIGIPOT_I2C
