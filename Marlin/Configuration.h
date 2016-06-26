@@ -58,8 +58,8 @@
 
 //Extruder PID settings. "In the case of multiple extruders (E0, E1, E2) these PID values are shared between the extruders..."
 #define PIDTEMP
-#define BANG_MAX 75 // limits current to nozzle while in bang-bang mode; 255=full current
-#define PID_MAX 75 // limits current to nozzle while PID is active (see PID_FUNCTIONAL_RANGE below); 255=full current
+#define BANG_MAX 65 // limits current to nozzle while in bang-bang mode; 255=full current
+#define PID_MAX 65 // limits current to nozzle while PID is active (see PID_FUNCTIONAL_RANGE below); 255=full current
 
 #if ENABLED(PIDTEMP)
 	//#define PID_DEBUG // Sends debug data to the serial port.
@@ -198,13 +198,14 @@ const bool Z_MAX_ENDSTOP_INVERTING = true;
 
 #define HOMING_FEEDRATE {85*60, 85*60, 15*60, 0}  // set the homing speeds (mm/min)
 
+//GT2 14 Tooth Pulley at 200step/rotation = 114.29
 //GT2 16 Tooth Pulley at 200step/rotation = 100
 //GT2 30 Tooth Pulley at 200step/rotation = 53.33
 //AMCE 8mm Pitch Rod at 200step/rotation = 400
 //TazMega extruders have been configured with 866 steps/mm.
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {53.33,53.33,400,890}
+#define DEFAULT_AXIS_STEPS_PER_UNIT   {114.29,114.29,400,890}
 
-#define DEFAULT_MAX_FEEDRATE          {600, 600, 15, 50}
+#define DEFAULT_MAX_FEEDRATE          {240, 240, 15, 50}
 #define DEFAULT_MAX_ACCELERATION      {10000,10000,35,10000}	//XY tested at upwards of 12000mm/s^2 (~1.2G)
 
 #define DEFAULT_ACCELERATION          2750
@@ -281,7 +282,7 @@ const bool Z_MAX_ENDSTOP_INVERTING = true;
     #define LEFT_PROBE_BED_POSITION 70
     #define RIGHT_PROBE_BED_POSITION (X_MAX_POS - LEFT_PROBE_BED_POSITION)
     #define FRONT_PROBE_BED_POSITION (75 - 75)
-    #define BACK_PROBE_BED_POSITION (Y_MAX_POS - FRONT_PROBE_BED_POSITION - 75)
+    #define BACK_PROBE_BED_POSITION (Y_MAX_POS - FRONT_PROBE_BED_POSITION - 75 - 35)
 
     #define MIN_PROBE_EDGE 10 // The Z probe minimum square sides can be no smaller than this.
 
@@ -305,12 +306,11 @@ const bool Z_MAX_ENDSTOP_INVERTING = true;
   // Offsets to the Z probe relative to the nozzle tip.
   // X and Y offsets must be integers.
   #define X_PROBE_OFFSET_FROM_EXTRUDER -70     // Z probe to nozzle X offset: -left  +right
-  #define Y_PROBE_OFFSET_FROM_EXTRUDER 0     // Z probe to nozzle Y offset: -front +behind
-  //#define X_PROBE_OFFSET_FROM_EXTRUDER -70     // Z probe to nozzle X offset: -left  +right
-  //#define Y_PROBE_OFFSET_FROM_EXTRUDER 55     // Z probe to nozzle Y offset: -front +behind
+  #define Y_PROBE_OFFSET_FROM_EXTRUDER -35     // Z probe to nozzle Y offset: -front +behind
   //#define Z_PROBE_OFFSET_FROM_EXTRUDER -1  // Z probe to nozzle Z offset: -below (always!)
 
-  #define Z_PROBE_OFFSET_FROM_EXTRUDER -1.525   //@20C - Use slicer configuration to apply temperature dependent offsets.
+  #define Z_PROBE_OFFSET_FROM_EXTRUDER -0.5   //@20C - Use slicer configuration to apply temperature dependent offsets.
+
   //#define Z_PROBE_OFFSET_FROM_EXTRUDER -1   //@20C
   //define Z_PROBE_OFFSET_FROM_EXTRUDER -0.7  //@120C
   //#define Z_PROBE_OFFSET_FROM_EXTRUDER -0.875  //@65C
@@ -319,7 +319,7 @@ const bool Z_MAX_ENDSTOP_INVERTING = true;
   #define Z_RAISE_BEFORE_HOMING 4       // (in mm) Raise Z axis before homing (G28) for Z probe clearance.
                                         // Be sure you have this distance over your Z_MAX_POS in case.
 
-  #define XY_TRAVEL_SPEED 21600         // X and Y axis travel speed between probes, in mm/min.
+  #define XY_TRAVEL_SPEED 14400         // X and Y axis travel speed between probes, in mm/min.
 
   #define Z_RAISE_BEFORE_PROBING 20   // How much the Z axis will be raised before traveling to the first probing point.
   #define Z_RAISE_BETWEEN_PROBINGS 3  // How much the Z axis will be raised when traveling from between next probing points.
