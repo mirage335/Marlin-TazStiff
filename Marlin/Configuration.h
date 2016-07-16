@@ -205,12 +205,12 @@ const bool Z_MAX_ENDSTOP_INVERTING = true;
 //TazMega extruders have been configured with 866 steps/mm.
 #define DEFAULT_AXIS_STEPS_PER_UNIT   {114.29,114.29,400,890}
 
-#define DEFAULT_MAX_FEEDRATE          {240, 240, 15, 50}
-#define DEFAULT_MAX_ACCELERATION      {10000,10000,35,10000}	//XY tested at upwards of 12000mm/s^2 (~1.2G)
+#define DEFAULT_MAX_FEEDRATE          {260, 260, 25, 35}
+#define DEFAULT_MAX_ACCELERATION      {4000,4000,70,10000}	//XY tested at upwards of 12000mm/s^2 (~1.2G)
 
-#define DEFAULT_ACCELERATION          2750
-#define DEFAULT_RETRACT_ACCELERATION  2750
-#define DEFAULT_TRAVEL_ACCELERATION   2750
+#define DEFAULT_ACCELERATION          3500
+#define DEFAULT_RETRACT_ACCELERATION  3500
+#define DEFAULT_TRAVEL_ACCELERATION   3500
 
 // Offset of the extruders (uncomment if using more than one and relying on firmware to position when changing).
 // The offset has to be X=0, Y=0 for the extruder 0 hotend (default extruder).
@@ -219,9 +219,9 @@ const bool Z_MAX_ENDSTOP_INVERTING = true;
 // #define EXTRUDER_OFFSET_Y {0.0, 5.00}  // (in mm) for each extruder, offset of the hotend on the Y axis
 
 // The speed change that does not require acceleration (i.e. the software might assume it can be done instantaneously)
-#define DEFAULT_XYJERK                20     // (mm/sec)
+#define DEFAULT_XYJERK                15     // (mm/sec) reasonable upper value 35
 #define DEFAULT_ZJERK                 0.5    // (mm/sec)
-#define DEFAULT_EJERK                 5.0    // (mm/sec)
+#define DEFAULT_EJERK                 8    // (mm/sec)
 
 
 
@@ -309,7 +309,7 @@ const bool Z_MAX_ENDSTOP_INVERTING = true;
   #define Y_PROBE_OFFSET_FROM_EXTRUDER -35     // Z probe to nozzle Y offset: -front +behind
   //#define Z_PROBE_OFFSET_FROM_EXTRUDER -1  // Z probe to nozzle Z offset: -below (always!)
 
-  #define Z_PROBE_OFFSET_FROM_EXTRUDER -0.5   //@20C - Use slicer configuration to apply temperature dependent offsets.
+  #define Z_PROBE_OFFSET_FROM_EXTRUDER -0.7   //@20C - Use slicer configuration to apply temperature dependent offsets.
 
   //#define Z_PROBE_OFFSET_FROM_EXTRUDER -1   //@20C
   //define Z_PROBE_OFFSET_FROM_EXTRUDER -0.7  //@120C
