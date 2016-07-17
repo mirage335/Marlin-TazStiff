@@ -272,7 +272,7 @@
 #define MICROSTEP_MODES {16,16,16,16,16} // [1,2,4,8,16]
 
 // Motor Current setting (Only functional when motor driver current ref pins are connected to a digital trimpot on supported boards)
-#define DIGIPOT_MOTOR_CURRENT {225,225,235,140,140} // Values 0-255 (RAMBO 135 = ~0.75A, 185 = ~1A) - 255 calculated at < 1.42A
+#define DIGIPOT_MOTOR_CURRENT {225,225,235,192,192} // Values 0-255 (RAMBO 135 = ~0.75A, 185 = ~1A) - 255 calculated at < 1.42A
 
 // uncomment to enable an I2C based DIGIPOT like on the Azteeg X3 Pro
 //#define DIGIPOT_I2C
@@ -381,12 +381,13 @@
 // Hooke's law says:    force = k * distance
 // Bernoulli's principle says:  v ^ 2 / 2 + g . h + pressure / density = constant
 // so: v ^ 2 is proportional to number of steps we advance the extruder
-#define ADVANCE
+//#define ADVANCE
 
 #if ENABLED(ADVANCE)
-  #define EXTRUDER_ADVANCE_K 0.015
+  //#define EXTRUDER_ADVANCE_K 0.015	//What should be used according to calculations.
+  #define EXTRUDER_ADVANCE_K 0.005	//What we might try to compensate for apparently instantaneous advance.
   #define D_FILAMENT 2.8
-  #define STEPS_MM_E 890
+  #define STEPS_MM_E 750
 #endif
 
 // @section extras

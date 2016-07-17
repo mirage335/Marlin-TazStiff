@@ -203,10 +203,10 @@ const bool Z_MAX_ENDSTOP_INVERTING = true;
 //GT2 30 Tooth Pulley at 200step/rotation = 53.33
 //AMCE 8mm Pitch Rod at 200step/rotation = 400
 //TazMega extruders have been configured with 866 steps/mm.
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {114.29,114.29,400,890}
+#define DEFAULT_AXIS_STEPS_PER_UNIT   {114.29,114.29,400,750}
 
-#define DEFAULT_MAX_FEEDRATE          {260, 260, 25, 35}
-#define DEFAULT_MAX_ACCELERATION      {4000,4000,70,10000}	//XY tested at upwards of 12000mm/s^2 (~1.2G)
+#define DEFAULT_MAX_FEEDRATE          {260, 260, 25, 20}
+#define DEFAULT_MAX_ACCELERATION      {4000,4000,70,5000}	//XY tested at upwards of 12000mm/s^2 (~1.2G)
 
 #define DEFAULT_ACCELERATION          3500
 #define DEFAULT_RETRACT_ACCELERATION  3500
@@ -221,7 +221,7 @@ const bool Z_MAX_ENDSTOP_INVERTING = true;
 // The speed change that does not require acceleration (i.e. the software might assume it can be done instantaneously)
 #define DEFAULT_XYJERK                15     // (mm/sec) reasonable upper value 35
 #define DEFAULT_ZJERK                 0.5    // (mm/sec)
-#define DEFAULT_EJERK                 8    // (mm/sec)
+#define DEFAULT_EJERK                 2    // (mm/sec)
 
 
 
@@ -309,7 +309,7 @@ const bool Z_MAX_ENDSTOP_INVERTING = true;
   #define Y_PROBE_OFFSET_FROM_EXTRUDER -35     // Z probe to nozzle Y offset: -front +behind
   //#define Z_PROBE_OFFSET_FROM_EXTRUDER -1  // Z probe to nozzle Z offset: -below (always!)
 
-  #define Z_PROBE_OFFSET_FROM_EXTRUDER -0.7   //@20C - Use slicer configuration to apply temperature dependent offsets.
+  #define Z_PROBE_OFFSET_FROM_EXTRUDER -0.05   //@20C - Use slicer configuration to apply temperature dependent offsets.
 
   //#define Z_PROBE_OFFSET_FROM_EXTRUDER -1   //@20C
   //define Z_PROBE_OFFSET_FROM_EXTRUDER -0.7  //@120C
